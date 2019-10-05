@@ -20,6 +20,9 @@ env:
 init:
 	mkdir -p  libs
 	mkdir -p  js
+	
+test:
+	echo "test"
 
 #--pre-js   libs/prescript.js 
 #--post-js  libs/postscript.js 

@@ -2,13 +2,14 @@ CC:=
 LIBS:=
 CFLAG:=
 
-SOURCE:=libs/main.cc 
+SOURCE:=libs/main.cc  libs/add.c
 OBJS:=$(SOURCE:.cc=.o)
 OUT:=js/main.js
 
 all:env
 	emcc  $(SOURCE) -Os -s WASM=1   \
-		--bind \
+		-s  EXTRA_EXPORTED_RUNTIME_METHODS="['ccall','cwrap']"  \
+		-s  EXPORTED_FUNCTIONS="['_main']" \
 		-o $(OUT)
 
 run: 
@@ -20,6 +21,6 @@ env:
 init:
 	mkdir -p  libs
 	mkdir -p  js
-
-#--pre-js   libs/prescript.js 
-#--post-js  libs/postscript.js 
+	
+test:
+	echo "test"

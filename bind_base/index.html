@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<script>
+			var Module ={
+				onRuntimeInitialized: function(){					
+					var instance = Module.getMyClassInstance(10,"hello");
+					console.log(  instance.sum(1,2) );
+					console.log(  instance.x);
+
+					console.log(  Module.MyClass.getMsg( instance ) );
+					instance.delete();				
+				}
+			}
+		</script>
+		<script src="js/main.js"></script>		
+	</head>
+	<body>
+
+	</body>
+
+</html>

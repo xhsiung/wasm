@@ -9,6 +9,8 @@ OUT:=js/main.js
 all:env
 	emcc  $(SOURCE) -Os -s WASM=1   \
 		--bind \
+		-s EXTRA_EXPORTED_RUNTIME_METHODS="['getValue']"  \
+		--post-js  libs/postscript.js \
 		-o $(OUT)
 
 run: 
@@ -20,6 +22,9 @@ env:
 init:
 	mkdir -p  libs
 	mkdir -p  js
+	
+test:
+	echo "test"
 
-#--pre-js   libs/prescript.js 
 #--post-js  libs/postscript.js 
+#--pre-js   libs/prescript.js 
