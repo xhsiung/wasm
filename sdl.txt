@@ -1,3 +1,7 @@
+參考:
+https://github.com/lherman-cs/cs4160/blob/master/assignment-4/build-wasm.sh
+
+
 SRCS=`ls src/**/unity.cpp`
 CXXFLAGS=(-O3 -std=c++17 -Iinclude -I/vendor/include/expat)
 LDFLAGS=(-L/vendor/lib/expat -lexpat)
