@@ -1,5 +1,6 @@
 #include <emscripten/bind.h>
 #include <iostream>
+#include "utils.h"
 
 using namespace emscripten;
 
@@ -25,6 +26,10 @@ public:
 
 MyClass* getMyClassInstance(int a, std::string m){
 	return new MyClass(a, m);
+}
+
+EM_PORT_API(int) add(int a,int b){
+	return a+b;
 }
 
 EMSCRIPTEN_BINDINGS(module){
